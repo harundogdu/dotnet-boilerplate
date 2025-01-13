@@ -1,0 +1,78 @@
+# Genel .NET Core ayarları
+bin/
+obj/
+out/
+TestResults/
+*.dll
+*.exe
+*.app
+*.log
+*.vspscc
+*.vssscc
+*.tmp
+*.user
+*.userosscache
+*.suo
+*.pdb
+*.cache
+*.csproj.user
+*.pri
+*.hmap
+
+# Rider IDE için
+.idea/
+*.sln.iml
+
+# Visual Studio için
+.vscode/
+.vs/
+.vscode/settings.json
+.vscode/tasks.json
+
+# Paket yönetimi
+*.nupkg
+*.snupkg
+*.package
+packages/
+.nuget/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# MacOS
+.DS_Store
+*.swp
+*.swm
+__pycache__
+
+# Kapsayıcılar
+*.dockerfile
+docker-compose.*
+Dockerfile
+.dockerignore
+
+# Logs
+*.log
+
+# Config dosyaları
+appsettings.json
+appsettings.*.json
+
+# Kullanıcı özgü
+*.ipch
+*.dbmdl
+*.jfm
+.resharper/
+_ReSharper/
+*.DotSettings.user
+
+# Yarn veya NPM
+node_modules/
+*.yarn-cache/
+*.yarnrc
+yarn.lock
+npm-debug.log
+
+# VS Code Debug ayarları
+launch.json
+tasks.json
