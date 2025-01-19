@@ -7,14 +7,14 @@ namespace basics.Controllers;
 public class HomeController : Controller
 {
 
-    public string Index()
+    public IActionResult Index()
     {
-        return "home/index";
+        return View();
     }
 
-    public string Contact()
+    public IActionResult Contact()
     {
-        return "home/contact";
+        return View();
     }
 
 }
