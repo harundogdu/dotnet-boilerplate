@@ -17,6 +17,7 @@
                     <th>Course ID</th>
                     <th>Course Title</th>
                     <th>Course Description</th>
+                    <th>Course Image</th>
                 </tr>
             </thead>
             <tbody>
@@ -26,6 +27,7 @@
                     <td>@course.Id</td>
                     <td>@course.Title</td>
                     <td>@course.Description</td>
+                    <td><img width="250" src="~/img/@course.Image" alt="@course.Title Image"></td>
                 </tr>
                 }
             </tbody>
