@@ -6,31 +6,62 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
         <title>Course list</title>
     </head>
 
     <body>
-        <h1>Course list page</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>Course ID</th>
-                    <th>Course Title</th>
-                    <th>Course Description</th>
-                    <th>Course Image</th>
-                </tr>
-            </thead>
-            <tbody>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark px-5">
+            <a class="navbar-brand" href="/">Course Management</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Course">Course</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Course/List">Courses</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container mt-5">
+            <div class="row">
                 @foreach (var course in Model)
                 {
-                <tr>
-                    <td>@course.Id</td>
-                    <td>@course.Title</td>
-                    <td>@course.Description</td>
-                    <td><img width="250" src="~/img/@course.Image" alt="@course.Title Image"></td>
-                </tr>
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <img class="card-img-top img-fluid" src="~/img/@course.Image" alt="@course.Title Image"
+                            style="height: 250px;">
+                        <div class=" card-body">
+                            <h5 class="card-title">@course.Title</h5>
+                            <p class="card-text">@course.Description</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a href="/" class="btn btn-sm btn-outline-secondary">View</a>
+                                    <a href="/" class="btn btn-sm btn-outline-secondary">Edit</a>
+                                </div>
+                                <small class="text-muted">
+                                    <script>
+                                        document.write(Math.floor(Math.random() * 100));
+                                    </script>
+                                    views
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 }
-            </tbody>
+
+            </div>
+        </div>
     </body>
 
     </html>
