@@ -7,13 +7,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Course Index</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
 </head>
 
 <body>
-    <h1>course index page</h1>
-    <p>Course ID: @Model.Id</p>
-    <p>Course Title: @Model.Title</p>
-    <p>Course Description: @Model.Description</p>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark px-5">
+        <a class="navbar-brand" href="/">Course Management</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Course">Course</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Course/List">Courses</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <img class="card-img-top img-fluid" src="~/img/@Model.Image" alt="@Model.Title Image"
+                        style="height: 250px;">
+                    <div class=" card-body">
+                        <h5 class="card-title">@Model.Title</h5>
+                        <p class="card-text">@Model.Description</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <a href="/" class="btn btn-sm btn-outline-secondary">View</a>
+                                <a href="/" class="btn btn-sm btn-outline-secondary">Edit</a>
+                            </div>
+                            <small class="text-muted">
+                                <script>
+                                    document.write(Math.floor(Math.random() * 100));
+                                </script>
+                                views
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
