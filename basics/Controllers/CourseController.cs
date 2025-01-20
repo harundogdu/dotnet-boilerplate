@@ -8,26 +8,27 @@ public class CourseController : Controller
 {
     public IActionResult Index()
     {
-        var course = new Course();
-        course.Id = 1;
-        course.Title = "ASP.NET Core MVC";
-        course.Description = "Learn ASP.NET Core MVC from scratch.";
-        course.Image = "1.jpg";
-        return View(course);
+        return RedirectToAction("List", "Course");
     }
-
     public IActionResult List()
     {
         return View("CourseList", Repository.Courses);
     }
 
-    public IActionResult Details()
+    public IActionResult Details(int? id)
     {
-        var course = new Course();
-        course.Id = 1;
-        course.Title = "ASP.NET Core MVC";
-        course.Description = "Learn ASP.NET Core MVC from scratch.";
-        course.Image = "1.jpg";
+        if (id is null)
+        {
+            return RedirectToAction("List", "Course");
+        }
+
+        var course = Repository.GetById(id);
+
+        if (course is null)
+        {
+            return RedirectToAction("List", "Course");
+        }
+
         return View(course);
     }
 }
