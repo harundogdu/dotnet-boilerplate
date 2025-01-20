@@ -1,16 +1,9 @@
+
 namespace basics.Models;
 
 public class Repository
 {
     public static readonly List<Course> _courses = [];
-
-    public static List<Course> Courses
-    {
-        get
-        {
-            return _courses;
-        }
-    }
 
     static Repository()
     {
@@ -20,6 +13,19 @@ public class Repository
             new Course{Id = 3, Title = "ASP.NET Core Blazor", Description = "Learn ASP.NET Core Blazor from scratch.", Image = "3.jpg"},
             new Course{Id = 4, Title = "ASP.NET Core SignalR", Description = "Learn ASP.NET Core SignalR from scratch.", Image = "4.jpg"},
         ];
+    }
+
+    public static List<Course> Courses
+    {
+        get
+        {
+            return _courses;
+        }
+    }
+
+    public static Course? GetById(int? id)
+    {
+        return _courses.FirstOrDefault(course => course.Id == id);
     }
 
 }
