@@ -3,27 +3,6 @@
     <div class="row">
         @foreach (var course in Model)
         {
-        <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-                <img class="card-img-top img-fluid" src="~/img/@course.Image" alt="@course.Title Image"
-                    style="height: 250px;">
-                <div class=" card-body">
-                    <h5 class="card-title">@course.Title</h5>
-                    <p class="card-text">@course.Description</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                            <a href="/" class="btn btn-sm btn-outline-secondary">View</a>
-                            <a href="/" class="btn btn-sm btn-outline-secondary">Edit</a>
-                        </div>
-                        <small class="text-muted">
-                            <script>
-                                document.write(Math.floor(Math.random() * 100));
-                            </script>
-                            views
-                        </small>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @await Html.PartialAsync("Course", course)
         }
     </div>
