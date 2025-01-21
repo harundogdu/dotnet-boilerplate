@@ -1,5 +1,5 @@
 @section Header {
-<div class="bg-light py-5">
+<div class="bg-light">
     <div class="jumbotron container py-5">
         <h1 class="display-4">Welcome to CourseApp!</h1>
         <p class="lead">This is a simple application to manage courses and students.</p>
@@ -11,3 +11,32 @@
     </div>
 </div>
 }
+
+
+<div class="container">
+    <div class="row">
+        @foreach (var course in Model)
+        {
+        @if (course.IsActive && course.IsHome)
+        {
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <img class="card-img-top img-fluid" src="~/img/@course.Image" alt="@course.Title Image"
+                    style="height: 200px;">
+                <div class="card-body">
+                    <a asp-controller="Course" asp-action="Details" asp-route-id="@course.Id"
+                        class="card-title text-decoration-none text-dark hover-text-danger">
+                        <h5 class="card-title">@course.Title</h5>
+                    </a>
+                    <p class="card-text" style="height:40px;">@course.Description</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <small class="text-muted">@course.RegisteredUsersCount user registered</small>
+                        <small class="text-muted">@course.ReleaseDate</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        }
+        }
+    </div>
+</div>
