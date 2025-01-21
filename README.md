@@ -1,14 +1,14 @@
 # Dotnet Boilerplate
 
-Bu depo, .NET uygulamaları geliştirmek için başlangıç noktası veya şablon olarak hizmet eden bir projedir. Geliştiricilerin yeni bir .NET projesi kurmasını hızlandırmak için temel yapı ve yapılandırma sağlar.
+This repository serves as a starting point or boilerplate for building .NET applications. It provides the basic structure and configuration to help developers quickly set up a new .NET project.
 
-## Özellikler
+## Features
 
-- **Temel Yapı**: Proje, hızlı bir başlangıç için gerekli olan temel dosya ve dizin yapısını içerir.
-- **Örnek Kontrolör**: `basics` klasöründe örnek bir `CourseController` bulunmaktadır.
-- **Toplantı Uygulaması**: `meeting-app` klasörü, bir toplantı uygulaması için başlangıç ayarlarını ve başlatma ayarlarını içerir.
+- **Basic Structure**: The project includes the essential file and directory structure for a quick start.
+- **Sample Controller**: An example `CourseController` is available in the `basics` folder.
+- **Meeting Application**: The `meeting-app` folder contains the initial setup and launch settings for a meeting application.
 
-## Teknoloji Yığını
+## Technology Stack
 
 - **.NET**
 - **C#**
@@ -16,36 +16,36 @@ Bu depo, .NET uygulamaları geliştirmek için başlangıç noktası veya şablo
 - **CSS**
 - **JavaScript**
 
-## Kurulum
+## Installation
 
-1. Depoyu klonlayın:
+1. Clone the repository:
    ```bash
    git clone https://github.com/harundogdu/dotnet-boilerplate.git
    ```
 
-2. Proje dizinine gidin:
+2. Navigate to the project directory:
    ```bash
    cd dotnet-boilerplate
    ```
 
-3. Gerekli bağımlılıkları yükleyin:
+3. Restore the necessary dependencies:
    ```bash
    dotnet restore
    ```
 
-4. Uygulamayı başlatın:
+4. Run the application:
    ```bash
    dotnet run
    ```
 
-## Lisans
+## License
 
-Bu projeye ait lisans bilgisi sağlanmamıştır.
+No license information is provided for this project.
 
-## Katkıda Bulunma
+## Contributing
 
-Eğer bu projeye katkıda bulunmak isterseniz, lütfen bir sorun açın veya pull request gönderin.
+If you would like to contribute to this project, please open an issue or submit a pull request.
 
-## İletişim
+## Contact
 
-Herhangi bir soru veya öneriniz varsa, lütfen iletişime geçin.
+Feel free to reach out with any questions or suggestions.
