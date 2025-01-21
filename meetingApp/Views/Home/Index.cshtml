@@ -2,6 +2,6 @@
 ViewData["Title"] = "Ana sayfa";
 }
 
-<h1 class="h4 text-lead">Merhaba, Harun. Günaydın!</h1>
-<p class="text-muted">Katılım durumunu bildiriniz.</p>
-<a href="" class="btn btn-primary">Katıl</a>
+<h1 class="h4 text-lead">Merhaba, Harun. @ViewData["Time"]!</h1>
+<p class="text-muted">Katılım durumunuzu bildiriniz.</p>
+<a class="btn btn-primary" asp-controller="Meeting" asp-action="Apply">Katıl</a>
