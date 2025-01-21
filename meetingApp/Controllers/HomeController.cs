@@ -7,7 +7,11 @@ namespace MeetingApp.Controllers
         public IActionResult Index()
         {
             int currentHour = DateTime.Now.Hour;
+
+            // ViewBag.UserName = "Harun";
+
             ViewData["Time"] = currentHour > 12 ? "İyi günler" : "Günaydın";
+            ViewData["UserName"] = "Harun";
             return View();
         }
     }
