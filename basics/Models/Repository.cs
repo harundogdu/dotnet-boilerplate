@@ -8,10 +8,58 @@ public class Repository
     static Repository()
     {
         _courses = [
-            new Course{Id = 1, Title = "ASP.NET Core MVC", Description = "Learn ASP.NET Core MVC from scratch.", Image = "1.jpg"},
-            new Course{Id = 2, Title = "ASP.NET Core Web API", Description = "Learn ASP.NET Core Web API from scratch.", Image = "2.jpg"},
-            new Course{Id = 3, Title = "ASP.NET Core Blazor", Description = "Learn ASP.NET Core Blazor from scratch.", Image = "3.jpg"},
-            new Course{Id = 4, Title = "ASP.NET Core SignalR", Description = "Learn ASP.NET Core SignalR from scratch.", Image = "4.jpg"},
+            new Course
+            {
+                Id = 1,
+                Title = "C# Basics",
+                Image = "1.jpg",
+                Description = "Learn the basics of C# programming language.",
+                Tags = ["C#", "Programming", "Basics"],
+                IsActive = true,
+                IsHome = true,
+                IsNew = true,
+                ReleaseDate = new DateOnly(2021, 1, 1),
+                RegisteredUsersCount = 100
+            },
+            new Course
+            {
+                Id = 2,
+                Title = "C# Intermediate",
+                Image = "2.jpg",
+                Description = "Learn the intermediate topics of C# programming language.",
+                Tags = ["C#", "Programming", "Intermediate"],
+                IsActive = true,
+                IsHome = true,
+                IsNew = false,
+                ReleaseDate = new DateOnly(2021, 1, 1),
+                RegisteredUsersCount = 50
+            },
+            new Course
+            {
+                Id = 3,
+                Title = "C# Advanced",
+                Image = "3.jpg",
+                Description = "Learn the advanced topics of C# programming language.",
+                Tags = ["C#", "Programming", "Advanced"],
+                IsActive = true,
+                IsHome = false,
+                IsNew = true,
+                ReleaseDate = new DateOnly(2021, 1, 1),
+                RegisteredUsersCount = 25
+            },
+            new Course
+            {
+                Id = 4,
+                Title = "ASP.NET Core",
+                Image = "4.jpg",
+                Description = "Learn the basics of ASP.NET Core.",
+                Tags = ["ASP.NET Core", "Web Development", "Basics"],
+                IsActive = false,
+                IsHome = true,
+                IsNew = false,
+                ReleaseDate = new DateOnly(2021, 1, 1),
+                RegisteredUsersCount = 75
+            },
         ];
     }
 
