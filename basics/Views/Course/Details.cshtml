@@ -1,2 +1,40 @@
 @model Course
-@await Html.PartialAsync("Course", Model)
+
+<div class="col-md-4">
+    <div class="card mb-4 shadow-sm">
+        <img class="card-img-top img-fluid" src="~/img/@Model.Image" alt="@Model.Title Image" style="height: 200px;">
+        <div class=" card-body">
+            <h5 class="card-title mb-2">@Model.Title</h5>
+            @if (Model.IsNew)
+            {
+            <span class="badge bg-info p-2 d-inline-block">New</span>
+            }
+
+            @if (Model.IsActive)
+            {
+            <span class="badge bg-success p-2 d-inline-block">Active</span>
+            }
+            else
+            {
+            <span class="badge bg-danger p-2 d-inline-block">Inactive</span>
+            }
+
+            @if (Model.Tags != null && Model.Tags.Length > 0)
+            {
+            @foreach (var tag in Model.Tags) {
+            <span class="badge bg-secondary p-2 d-inline-block"> @tag</span>
+            }
+            }
+
+            <p class="card-text mt-2">@Model.Description</p>
+            <div class="d-flex justify-content-between align-items-center">
+                <small class="text-muted">
+                    @Model.RegisteredUsersCount user registered
+                </small>
+                <small class="text-muted">
+                    @Model.ReleaseDate
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
