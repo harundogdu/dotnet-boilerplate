@@ -3,6 +3,9 @@
     <div class="row">
         @foreach (var course in Model)
         {
+        @if (course.IsActive)
+        {
         @await Html.PartialAsync("Course", course)
+        }
         }
     </div>
