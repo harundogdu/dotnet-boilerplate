@@ -1,12 +1,54 @@
-# Dotnet Boilerplate
+# .NET Boilerplate
 
-This repository serves as a starting point or boilerplate for building .NET applications. It provides the basic structure and configuration to help developers quickly set up a new .NET project.
+This project serves as a starting point or template for developing .NET applications. It provides the basic structure and configuration to help developers quickly set up a new .NET project.
 
-## Features
+## Table of Contents
 
-- **Basic Structure**: The project includes the essential file and directory structure for a quick start.
-- **Sample Controller**: An example `CourseController` is available in the `basics` folder.
-- **Meeting Application**: The `meeting-app` folder contains the initial setup and launch settings for a meeting application.
+- [Getting Started](#getting-started)
+- [Project Structure](#project-structure)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Technology Stack](#technology-stack)
+- [Contributors](#contributors)
+- [License](#license)
+
+## Getting Started
+
+This section outlines the steps required to run the project locally.
+
+### Requirements
+
+- [.NET SDK](https://dotnet.microsoft.com/download) (latest version)
+- A text editor or IDE (e.g., Visual Studio, Visual Studio Code)
+
+### Installation Steps
+
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/harundogdu/dotnet-boilerplate.git
+   cd dotnet-boilerplate
+   ```
+
+2. Restore the necessary dependencies:
+   ```bash
+   dotnet restore
+   ```
+
+3. Run the application:
+   ```bash
+   dotnet run
+   ```
+
+## Project Structure
+
+- **/basics**: Basic examples and configurations.
+  - `CourseController.cs`: An example controller.
+  
+- **/meeting-app**: Initial setup and configurations for the meeting application.
+
+## Usage
+
+Once the project is running, you can access the application by navigating to `http://localhost:5000` in your browser. You can use the `Swagger` interface to explore API endpoints and other features.
 
 ## Technology Stack
 
@@ -16,36 +58,11 @@ This repository serves as a starting point or boilerplate for building .NET appl
 - **CSS**
 - **JavaScript**
 
-## Installation
+## Contributors
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/harundogdu/dotnet-boilerplate.git
-   ```
-
-2. Navigate to the project directory:
-   ```bash
-   cd dotnet-boilerplate
-   ```
-
-3. Restore the necessary dependencies:
-   ```bash
-   dotnet restore
-   ```
-
-4. Run the application:
-   ```bash
-   dotnet run
-   ```
+If you would like to contribute to this project, please feel free to create a pull request or report issues.
 
 ## License
 
-No license information is provided for this project.
+No license information is provided for this project. Please check with the project owner for usage terms.
 
-## Contributing
-
-If you would like to contribute to this project, please open an issue or submit a pull request.
-
-## Contact
-
-Feel free to reach out with any questions or suggestions.
