@@ -5,7 +5,7 @@ ViewData["Title"] = "Toplantı katılım formu";
 
 
 <h1 class="h4 text-lead">Toplantı katılım formu</h1>
-<form action="/Meeting/Apply" method="post">
+<form method="post" asp-controller="Meeting" asp-action="Apply">
     <div class="form-group mt-4 mb-2">
         <label asp-for="Name" class="form-label">Ad Soyad</label>
         <input class="form-control" placeholder="Adınızı giriniz...">
