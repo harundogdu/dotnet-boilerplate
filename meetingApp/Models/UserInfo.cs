@@ -1,7 +1,4 @@
-using System;
-
-namespace meetingApp.Models;
-
+namespace MeetingApp.Models;
 public class UserInfo
 {
     public string? Name { get; set; }
