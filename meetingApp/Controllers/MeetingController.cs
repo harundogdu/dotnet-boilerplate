@@ -1,3 +1,4 @@
+using meetingApp.Models;
 using MeetingApp.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,7 +21,9 @@ namespace MeetingApp.Controllers
         [HttpPost]
         public IActionResult Apply(UserInfo model)
         {
-            return View();
+            Repository.CreateUser(model);
+            ViewBag.AttendeesCount = 20;
+            return View("Thanks", model);
         }
 
         [HttpGet]
