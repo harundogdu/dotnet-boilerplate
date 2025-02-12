@@ -1,0 +1,14 @@
+@model UserInfo;
+@{
+ViewData["Title"] = "Başvuru durumu";
+}
+
+<h1 class="h4 text-lead">Başvuru durumu</h1>
+
+@if(Model.WillAttend){
+<p class="text-muted">Sayın @Model.Name, toplantıya sizinle birlikte @ViewBag.AttendeesCount kişi katılıyor.</p>
+<a asp-controller="Meeting" asp-action="List" class="btn btn-primary">Katılımcıları listele.</a>
+}else{
+<p class="text-muted">@Model.Name, Toplantıya katılmayacağınız için üzgünüz.</p>
+<a asp-controller="Meeting" asp-action="Apply" class="btn btn-primary">Başvuruya geri dön.</a>
+}
