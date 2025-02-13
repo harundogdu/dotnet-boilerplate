@@ -22,7 +22,7 @@ namespace MeetingApp.Controllers
         public IActionResult Apply(UserInfo model)
         {
             Repository.CreateUser(model);
-            ViewBag.AttendeesCount = 20;
+            ViewBag.AttendeesCount = Repository.Users.Where(info => info.WillAttend == true).Count();
             return View("Thanks", model);
         }
 
