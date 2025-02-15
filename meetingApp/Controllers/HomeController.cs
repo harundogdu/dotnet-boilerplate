@@ -12,7 +12,7 @@ namespace MeetingApp.Controllers
             // ViewBag.UserName = "Harun";
 
             ViewData["Time"] = currentHour > 12 ? "İyi günler" : "Günaydın";
-            ViewData["UserName"] = "Harun";
+            // ViewData["UserName"] = "Harun";
             var meetingInfo = new MeetingInfo()
             {
                 Id = 1,
