@@ -1,22 +1,23 @@
-@{
-ViewData["Title"] = "Toplantı katılımcıları";
-}
+@model List<UserInfo>
+    @{
+    ViewData["Title"] = "Toplantı katılımcıları";
+    }
 
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>Ad</th>
-            <th>Katılım durumu</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Ad</th>
+                <th>Katılım durumu</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--  <tr>
             <td>Alper Çolak</td>
             <td>Evet</td>
             <td>
                 <a asp-controller="Meeting" asp-action="Detail" class="btn btn-primary">Detay</a>
             </td>
-        </tr>
-    </tbody>
-</table>
+        </tr> -->
+        </tbody>
+    </table>
