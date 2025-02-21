@@ -11,13 +11,26 @@
                 <th></th>
             </tr>
         </thead>
-        <tbody>
-            <!--  <tr>
-            <td>Alper Çolak</td>
-            <td>Evet</td>
-            <td>
-                <a asp-controller="Meeting" asp-action="Detail" class="btn btn-primary">Detay</a>
-            </td>
-        </tr> -->
+        <tbody class="table-striped">
+            @{int totalAttendees = 0;}
+            @foreach(var user in Model){
+            var state = user.WillAttend ? "Evet" : "Hayır";
+            var rowClass = user.WillAttend ? "table-success" : "table-danger";
+            if(user.WillAttend){
+            totalAttendees++;
+            }
+            <tr class="@rowClass">
+                <td>@user.Name</td>
+                <td>@state</td>
+                <td>
+                    <a asp-controller="Meeting" asp-action="Detail" class="btn btn-primary">Detay</a>
+                </td>
+            </tr>
+            }
         </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">Toplam katılımcı sayısı: @totalAttendees</td>
+            </tr>
+        </tfoot>
     </table>
