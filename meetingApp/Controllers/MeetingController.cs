@@ -33,9 +33,10 @@ namespace MeetingApp.Controllers
         }
 
         [HttpGet]
-        public IActionResult Detail()
+        public IActionResult Detail(int id)
         {
-            return View();
+            var user = Repository.GetUserById(id);
+            return View(user);
         }
     }
 }
