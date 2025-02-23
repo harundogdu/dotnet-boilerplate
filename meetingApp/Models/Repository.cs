@@ -11,6 +11,7 @@ public static class Repository
     {
         _users.Add(new UserInfo()
         {
+            Id = 1,
             Name = "Harun Doğdu",
             Email = "harundogdu@hd.com",
             Phone = "1234567890",
@@ -18,6 +19,7 @@ public static class Repository
         });
         _users.Add(new UserInfo()
         {
+            Id = 2,
             Name = "Muhammed Emin Beköz",
             Email = "mami@hd.com",
             Phone = "1451567890",
@@ -25,6 +27,7 @@ public static class Repository
         });
         _users.Add(new UserInfo()
         {
+            Id = 3,
             Name = "Ahmet Enes Bahar",
             Email = "amedenez@hd.com",
             Phone = "1451567880",
@@ -42,6 +45,7 @@ public static class Repository
 
     public static void CreateUser(UserInfo user)
     {
+        user.Id = _users.Count + 1;
         _users.Add(user);
     }
 }
