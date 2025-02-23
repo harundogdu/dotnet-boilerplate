@@ -14,16 +14,19 @@
         <tbody class="table-striped">
             @{int totalAttendees = 0;}
             @foreach(var user in Model){
-            var state = user.WillAttend ? "Evet" : "Hayır";
-            var rowClass = user.WillAttend ? "table-success" : "table-danger";
-            if(user.WillAttend){
+            var willAttend = user.WillAttend;
+            var state = willAttend ? "Evet" : "Hayır";
+            var rowClass = willAttend ? "table-success" : "table-danger";
+            var btnClass = willAttend ? "btn-success" : "btn-danger";
+            if(willAttend){
             totalAttendees++;
             }
             <tr class="@rowClass">
                 <td>@user.Name</td>
                 <td>@state</td>
                 <td>
-                    <a asp-controller="Meeting" asp-action="Detail" class="btn btn-primary">Detay</a>
+                    <a asp-controller="Meeting" asp-action="Detail" class="btn @btnClass"
+                        asp-route-id="@user.Id">Detay</a>
                 </td>
             </tr>
             }
