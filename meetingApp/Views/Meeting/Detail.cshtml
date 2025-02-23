@@ -1,5 +1,25 @@
+@model UserInfo
 @{
 ViewData["Title"] = "Toplantı detayı";
 }
 
-<h1>Detail Meeting</h1>
+@{
+var state = Model.WillAttend ? "Katılıyor" : "Katılmıyor";
+var btnClass = Model.WillAttend ? "btn-outline-success" : "btn-outline-danger";
+var badgeClass = Model.WillAttend ? "bg-success" : "bg-danger";
+}
+
+<div class="card">
+    <div class="card-header">
+        Toplantı detayı
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">@Model.Name</h5>
+        <p class="card-text text-muted">E-posta: @Model.Email</p>
+        <p class="card-text text-muted">Telefon: @Model.Phone</p>
+        <span class="badge @badgeClass">@state</span>
+    </div>
+    <div class="card-footer">
+        <a asp-controller="Meeting" asp-action="List" class="btn @btnClass">Listeye geri dön</a>
+    </div>
+</div>
