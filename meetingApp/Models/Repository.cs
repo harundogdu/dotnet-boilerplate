@@ -33,6 +33,14 @@ public static class Repository
             Phone = "1451567880",
             WillAttend = true
         });
+        _users.Add(new UserInfo()
+        {
+            Id = 4,
+            Name = "Alper Çolak",
+            Email = "colakalper@hd.com",
+            Phone = "1452567880",
+            WillAttend = false
+        });
     }
 
     public static List<UserInfo> Users
@@ -47,5 +55,10 @@ public static class Repository
     {
         user.Id = _users.Count + 1;
         _users.Add(user);
+    }
+
+    public static UserInfo? GetUserById(int id)
+    {
+        return _users.FirstOrDefault(user => user.Id == id);
     }
 }
