@@ -160,5 +160,15 @@ namespace FormsApp.Controllers
 
             return View("NotFound");
         }
+
+        [HttpGet]
+        public IActionResult Details(int id){
+            var product = Repository.GetProductById(id);
+            if(product == null){
+                return View("NotFound");
+            }
+
+            return View(product);
+        }
     }
 }
