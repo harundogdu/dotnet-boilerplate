@@ -1,0 +1,30 @@
+@model Product 
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="card card-body">
+    <div class="row align-items-center">
+        <div class="col-md-4">
+            <img src="~/img/@Model.ImageUrl" alt="@Model.Name" width="300" height="300" />
+        </div>
+        <div class="col-md-8">
+            <h2>@Model.Name</h2>
+            <p>@Model.Description</p>
+            <h3>$@Model.Price</h3>
+            @if (Model.IsAvailable)
+            {
+                <span class="text-success">Available</span>
+            }
+            else
+            {
+                <span class="text-danger">Not Available</span>
+            }
+            <br />
+            <br />
+            <a href="@Url.Action("Edit", "Home" , new { id=Model.ProductId })" class="btn btn-warning">Edit</a>
+            <a href="@Url.Action("Delete", "Home" , new { id=Model.ProductId })" class="btn btn-danger">Delete</a>
+            <a href="@Url.Action("Index", "Home")" class="btn btn-secondary">Back to List</a>
+        </div>
+    </div>
+</div>
