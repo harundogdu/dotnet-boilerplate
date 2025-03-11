@@ -6,6 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css">
     <title>@ViewData["Title"] - My ASP.NET Application</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        main {
+            height: calc(100vh - 130px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-y: auto !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -37,16 +52,15 @@
         </div>
     </header>
 
-    <main class="container py-4 d-flex justify-content-center align-items-center flex-column text-center flex-1">
+    <main class="py-5">
         @RenderBody()
     </main>
 
 
     <footer class="bg-light text-dark text-center p-3">
-        <div class="container">
-            <p>&copy; 2025 - FormsApp</p>
-        </div>
-        <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
+        <p class="m-0">&copy; 2025 - FormsApp</p>
+    </footer>
+    <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
 </body>
 
 </html>
