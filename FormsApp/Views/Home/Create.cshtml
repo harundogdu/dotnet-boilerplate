@@ -5,6 +5,8 @@ ViewData["Title"] = "Create Product";
 }
 
 <form class="card card-body" method="post" asp-action="Create" asp-controller="Home">
+    <div asp-validation-summary="All" class="text-danger"></div> <!-- This line is important -->
+
     <div class="form-group">
         <label asp-for="Name"></label>
         <input asp-for="Name" class="form-control" />
