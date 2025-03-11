@@ -40,13 +40,34 @@ namespace FormsApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Product product, IFormFile imageFile)
+        public async Task<IActionResult> Create(Product product, IFormFile imageFile)
         {
+
+            var extension = Path.GetExtension(imageFile.FileName);
+            var allowedExtensions = new[] { ".jpg", ".jpeg", ".png", ".gif" };
+
+            if (!allowedExtensions.Contains(extension))
+            {
+                ModelState.AddModelError("imageFile", "Invalid image file extension");
+            }
+
             if (ModelState.IsValid)
             {
-                var maxId = Repository.Products.Max(p => p.ProductId) + 1;
-                product.ProductId = maxId;
+                if (imageFile != null)
+                {
+                    var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img", Guid.NewGuid().ToString() + extension);
+                    var fileName = Path.GetFileName(path);
+
+                    using (var stream = new FileStream(path, FileMode.Create))
+                    {
+                        await imageFile.CopyToAsync(stream);
+                    }
+
+                    product.ImageUrl = fileName;
+                }
+
                 Repository.AddProduct(product);
+
                 return RedirectToAction("Index");
             }
 
