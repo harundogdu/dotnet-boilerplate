@@ -42,8 +42,16 @@ namespace FormsApp.Controllers
         [HttpPost]
         public IActionResult Create(Product product)
         {
-            var categories = Repository.Categories;
-            return View(categories);
+            if (ModelState.IsValid)
+            {
+                var maxId = Repository.Products.Max(p => p.ProductId) + 1;
+                product.ProductId = maxId;
+                Repository.AddProduct(product);
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.Categories = Repository.Categories;
+            return View(product);
         }
     }
 }
