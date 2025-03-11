@@ -14,6 +14,8 @@ namespace FormsApp.Controllers
                 products = products.FindAll(p => p.Name.Contains(searchString, StringComparison.CurrentCultureIgnoreCase));
             }
 
+            ViewBag.SearchString = searchString;
+
             return View(products);
         }
     }

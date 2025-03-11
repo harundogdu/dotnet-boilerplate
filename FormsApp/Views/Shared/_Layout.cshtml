@@ -47,7 +47,8 @@
                 </div>
                 <form method="get" asp-action="Index">
                     <div class="form-group d-flex gap-2">
-                        <input type="text" class="form-control" name="searchString" placeholder="Enter product name..">
+                        <input type="text" class="form-control" name="searchString" placeholder="Enter product name.."
+                            value="@ViewBag.SearchString">
                         <button class="btn btn-primary" type="submit">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-search" viewBox="0 0 16 16">
