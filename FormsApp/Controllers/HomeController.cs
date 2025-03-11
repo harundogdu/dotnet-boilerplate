@@ -5,9 +5,16 @@ namespace FormsApp.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Index(string searchString)
         {
-            return View(Repository.Products);
+            var products = Repository.Products;
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                products = products.FindAll(p => p.Name.ToLower().Contains(searchString));
+            }
+
+            return View(products);
         }
     }
 }
