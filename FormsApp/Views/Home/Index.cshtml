@@ -1,69 +1,70 @@
-@model List<Product>
-    @{
-    ViewData["Title"] = "Home Page";
-    }
+@model ProductViewModel
+@{
+ViewData["Title"] = "Home Page";
+}
 
-    <div class="card card-body mb-4">
-        <form action="">
-            <div class="row">
-                <div class="col-md-11">
-                    <div class="form-group">
-                        <select class="form-select" asp-items="ViewBag.Categories" name="categoryId">
-                            <option value="0">Hepsi</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-md-1">
-                    <button type="submit" class="btn btn-primary">Filtrele</button>
+<div class="card card-body mb-4">
+    <form action="">
+        <div class="row">
+            <div class="col-md-11">
+                <div class="form-group">
+                    <select class="form-select" name="categoryId" asp-for="SelectedCategory"
+                        asp-items="@(new SelectList(Model.Categories, nameof(Category.CategoryId), nameof(Category.Name)))">
+                        <option value="0">Hepsi</option>
+                    </select>
                 </div>
             </div>
-        </form>
-    </div>
+            <div class="col-md-1">
+                <button type="submit" class="btn btn-primary">Filtrele</button>
+            </div>
+        </div>
+    </form>
+</div>
 
-    <table class="table table-bordered table-striped">
-        <thead>
-            <tr>
-                <th>@Html.DisplayNameFor(model => model[0].ImageUrl)</th>
-                <th>@Html.DisplayNameFor(model => model[0].Name)</th>
-                <th width="400px">@Html.DisplayNameFor(model => model[0].Description)</th>
-                <th>@Html.DisplayNameFor(model => model[0].Price)</th>
-                <th>@Html.DisplayNameFor(model => model[0].IsAvailable)</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var product in Model)
-            {
-            <tr>
-                <td><img src="~/img/@product.ImageUrl" alt="@product.Name" width="100" height="100" /></td>
-                <td>@product.Name</td>
-                <td>@product.Description</td>
-                <td>$@product.Price</td>
-                <td>
-                    @if (product.IsAvailable)
-                    {
-                    <span class="text-success">Available</span>
-                    }
-                    else
-                    {
-                    <span class="text-danger">Not Available</span>
-                    }
-                </td>
-                <td>
-                    <a href="@Url.Action(" Details", "Products" , new { id=product.ProductId })"
-                        class="btn btn-info">Details</a>
-                    <a href="@Url.Action(" Edit", "Products" , new { id=product.ProductId })"
-                        class="btn btn-warning">Edit</a>
-                    <a href="@Url.Action(" Delete", "Products" , new { id=product.ProductId })"
-                        class="btn btn-danger">Delete</a>
-            </tr>
-            }
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Products.FirstOrDefault().ImageUrl)</th>
+            <th>@Html.DisplayNameFor(model => model.Products.FirstOrDefault().Name)</th>
+            <th width="400px">@Html.DisplayNameFor(model => model.Products.FirstOrDefault().Description)</th>
+            <th>@Html.DisplayNameFor(model => model.Products.FirstOrDefault().Price)</th>
+            <th>@Html.DisplayNameFor(model => model.Products.FirstOrDefault().IsAvailable)</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model.Products)
+        {
+        <tr>
+            <td><img src="~/img/@product.ImageUrl" alt="@product.Name" width="100" height="100" /></td>
+            <td>@product.Name</td>
+            <td>@product.Description</td>
+            <td>$@product.Price</td>
+            <td>
+                @if (product.IsAvailable)
+                {
+                <span class="text-success">Available</span>
+                }
+                else
+                {
+                <span class="text-danger">Not Available</span>
+                }
+            </td>
+            <td>
+                <a href="@Url.Action(" Details", "Products" , new { id=product.ProductId })"
+                    class="btn btn-info">Details</a>
+                <a href="@Url.Action(" Edit", "Products" , new { id=product.ProductId })"
+                    class="btn btn-warning">Edit</a>
+                <a href="@Url.Action(" Delete", "Products" , new { id=product.ProductId })"
+                    class="btn btn-danger">Delete</a>
+        </tr>
+        }
 
-            @if (Model.Count == 0)
-            {
-            <tr>
-                <td colspan="6" style="text-align: center;">No products found</td>
-            </tr>
-            }
-        </tbody>
-    </table>
+        @if (Model.Products.Count == 0)
+        {
+        <tr>
+            <td colspan="6" style="text-align: center;">No products found</td>
+        </tr>
+        }
+    </tbody>
+</table>
