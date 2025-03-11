@@ -11,7 +11,7 @@ namespace FormsApp.Controllers
 
             if (!string.IsNullOrEmpty(searchString))
             {
-                products = products.FindAll(p => p.Name.ToLower().Contains(searchString));
+                products = products.FindAll(p => p.Name.Contains(searchString, StringComparison.CurrentCultureIgnoreCase));
             }
 
             return View(products);
