@@ -45,14 +45,23 @@
                         </li>
                     </ul>
                 </div>
-                <div>
-                    <!-- search bar -->
-                </div>
+                <form method="get" asp-action="Index">
+                    <div class="form-group d-flex gap-2">
+                        <input type="text" class="form-control" name="searchString" placeholder="Enter product name..">
+                        <button class="btn btn-primary" type="submit">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-search" viewBox="0 0 16 16">
+                                <path
+                                    d="M10.832 9.54a5.5 5.5 0 1 0-1.292 1.292l3.86 3.86a1 1 0 0 0 1.415-1.414l-3.86-3.86a1 1 0 0 0-1.123-.218zm-4.332 0a3.5 3.5 0 1 1 1.292-1.292 3.5 3.5 0 0 1-1.292 1.292z" />
+                            </svg>
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </header>
 
-    <main class="py-5">
+    <main class="py-4 container align-items-start">
         @RenderBody()
     </main>
 
