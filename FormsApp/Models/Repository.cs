@@ -21,6 +21,11 @@ namespace FormsApp.Models
             }
         }
 
+        public static void AddProduct(Product product)
+        {
+            products.Add(product);
+        }
+
         static Repository()
         {
             categories.Add(new Category { CategoryId = 1, Name = "Laptop" });
