@@ -36,8 +36,17 @@
             </div>
         </div>
     </header>
-    @RenderBody()
-    <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
+
+    <main class="container py-4 d-flex justify-content-center align-items-center flex-column text-center flex-1">
+        @RenderBody()
+    </main>
+
+
+    <footer class="bg-light text-dark text-center p-3">
+        <div class="container">
+            <p>&copy; 2025 - FormsApp</p>
+        </div>
+        <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
 </body>
 
 </html>
