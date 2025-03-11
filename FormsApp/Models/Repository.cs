@@ -34,8 +34,8 @@ namespace FormsApp.Models
             products.Add(new Product { ProductId = 5, Name = "Samsung Galaxy S21", Price = 899.99M, CategoryId = 2, ImageUrl = "5.jpg", Description = "The Samsung Galaxy S21 is a series of Android-based smartphones designed, developed, marketed, and manufactured by Samsung Electronics.", IsAvailable = false });
             products.Add(new Product { ProductId = 6, Name = "Samsung Galaxy Tab S7", Price = 649.99M, CategoryId = 3, ImageUrl = "6.jpg", Description = "The Samsung Galaxy Tab S7 is a line of Android-based tablet computers developed and marketed by Samsung Electronics.", IsAvailable = true });
             products.Add(new Product { ProductId = 7, Name = "HP Spectre x360", Price = 1299.99M, CategoryId = 1, ImageUrl = "7.jpg", Description = "The HP Spectre x360 is a line of high-end 2-in-1 convertible laptops produced by HP.", IsAvailable = false });
-            products.Add(new Product { ProductId = 8, Name = "Google Pixel 5", Price = 699.99M, CategoryId = 2, ImageUrl = "8.jpg", Description = "The Google Pixel 5 is a smartphone part of the Google Pixel product line, serving as a successor to the Pixel 4.", IsAvailable = true });
-            products.Add(new Product { ProductId = 9, Name = "Microsoft Surface Pro 7", Price = 899.99M, CategoryId = 3, ImageUrl = "9.jpeg", Description = "The Microsoft Surface Pro 7 is a 2-in-1 detachable tablet computer developed by Microsoft.", IsAvailable = false });
+            // products.Add(new Product { ProductId = 8, Name = "Google Pixel 5", Price = 699.99M, CategoryId = 2, ImageUrl = "8.jpg", Description = "The Google Pixel 5 is a smartphone part of the Google Pixel product line, serving as a successor to the Pixel 4.", IsAvailable = true });
+            // products.Add(new Product { ProductId = 9, Name = "Microsoft Surface Pro 7", Price = 899.99M, CategoryId = 3, ImageUrl = "9.jpeg", Description = "The Microsoft Surface Pro 7 is a 2-in-1 detachable tablet computer developed by Microsoft.", IsAvailable = false });
         }
     }
 }
