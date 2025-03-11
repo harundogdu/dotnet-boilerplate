@@ -1,3 +1,4 @@
+using FormsApp.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FormsApp.Controllers
@@ -6,7 +7,7 @@ namespace FormsApp.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            return View(Repository.Products);
         }
     }
 }
