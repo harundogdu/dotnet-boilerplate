@@ -9,6 +9,38 @@
 </head>
 
 <body>
+    <header class="bg-white text-dark p-3 shadow-sm">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <div class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-dark text-decoration-none gap-3">
+                    <a href="/"
+                        class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-dark text-decoration-none">
+                        <span class="fs-4">FormsApp</span>
+                    </a>
+                    <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+                        <li>
+                            <a href="/" class="nav-link text-dark">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/post" class="nav-link text-dark">
+                                Posts
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/post/create" class="nav-link text-dark">
+                                Create Post
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <!-- search bar -->
+                </div>
+            </div>
+        </div>
+    </header>
     @RenderBody()
     <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
 </body>
