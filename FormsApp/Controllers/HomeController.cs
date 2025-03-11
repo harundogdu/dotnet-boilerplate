@@ -40,7 +40,7 @@ namespace FormsApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Product product)
+        public IActionResult Create(Product product, IFormFile imageFile)
         {
             if (ModelState.IsValid)
             {
