@@ -141,5 +141,15 @@ namespace FormsApp.Controllers
             ViewBag.Categories = Repository.Categories;
             return View(product);
         }
+
+        [HttpGet]
+        public IActionResult Delete(int id){        
+            var product = Repository.GetProductById(id);
+            if(product == null){
+                return View("NotFound");
+            }
+
+            return View(product);
+        }
     }
 }
