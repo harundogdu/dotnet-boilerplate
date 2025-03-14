@@ -26,6 +26,10 @@ namespace FormsApp.Models
             products.Add(product);
         }
 
+        public static Product GetProductById(int id){
+            return products.FirstOrDefault(product => product.ProductId == id)!;
+        }
+
         static Repository()
         {
             categories.Add(new Category { CategoryId = 1, Name = "Laptop" });
