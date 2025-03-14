@@ -39,6 +39,16 @@ namespace FormsApp.Models
             }
         }
 
+          public static bool DeleteProduct(int id)
+        {
+            var product = products.FirstOrDefault(p => p.ProductId == id);
+            if(product != null){
+                products.Remove(product);
+                return true;
+            }
+            return false;
+        }
+
         public static Product GetProductById(int id){
             return products.FirstOrDefault(product => product.ProductId == id)!;
         }
