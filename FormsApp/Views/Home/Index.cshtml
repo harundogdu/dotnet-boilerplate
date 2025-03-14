@@ -51,11 +51,10 @@ ViewData["Title"] = "Home Page";
                 }
             </td>
             <td>
-                <a href="@Url.Action(" Details", "Products" , new { id=product.ProductId })"
+                <a href="@Url.Action("Details", "Home" , new { id=product.ProductId })"
                     class="btn btn-info">Details</a>
-                <a href="@Url.Action(" Edit", "Products" , new { id=product.ProductId })"
-                    class="btn btn-warning">Edit</a>
-                <a href="@Url.Action(" Delete", "Products" , new { id=product.ProductId })"
+                <a href="@Url.Action("Edit", "Home" , new { id=product.ProductId })" class="btn btn-warning">Edit</a>
+                <a href="@Url.Action("Delete", "Home" , new { id=product.ProductId })"
                     class="btn btn-danger">Delete</a>
         </tr>
         }
