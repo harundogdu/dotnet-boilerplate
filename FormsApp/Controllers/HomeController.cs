@@ -82,7 +82,7 @@ namespace FormsApp.Controllers
             {
                 return View("NotFound");
             }
-            
+
             var product = Repository.GetProductById(id);
 
             if (product == null)
@@ -95,9 +95,51 @@ namespace FormsApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(Product product, IFormFile imageFile)
+        public async Task<IActionResult> Edit(Product product, IFormFile? imageFile)
         {
-            return RedirectToAction("Index");
+            var existingProduct = Repository.GetProductById(product.ProductId);
+            if (existingProduct == null)
+            {
+                return View("NotFound");
+            }
+
+            if (ModelState.IsValid)
+            {
+                if (imageFile != null)
+                {
+                    var extension = Path.GetExtension(imageFile.FileName);
+                    var allowedExtensions = new[] { ".jpg", ".jpeg", ".png", ".gif" };
+                    if (allowedExtensions.Contains(extension))
+                    {
+
+                        var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img", Guid.NewGuid().ToString() + extension);
+                        var fileName = Path.GetFileName(path);
+
+                        using (var stream = new FileStream(path, FileMode.Create))
+                        {
+                            await imageFile.CopyToAsync(stream);
+                        }
+
+                        product.ImageUrl = fileName;
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("imageFile", "Invalid image file extension");
+                        ViewBag.Categories = Repository.Categories;
+                        return View(product);
+                    }
+                }
+                else
+                {
+                    product.ImageUrl = existingProduct.ImageUrl;
+                }
+
+                Repository.EditProduct(product);
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.Categories = Repository.Categories;
+            return View(product);
         }
     }
 }
