@@ -21,7 +21,7 @@ namespace FormsApp.Models
         public decimal Price { get; set; }
 
         [Display(Name = "Image")]
-        public string ImageUrl { get; set; } = string.Empty;
+        public string? ImageUrl { get; set; }
 
         [Display(Name = "Is available")]
         [Required(ErrorMessage = "Please enter availability")]
