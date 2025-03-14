@@ -76,10 +76,28 @@ namespace FormsApp.Controllers
         }
 
         [HttpGet]
-        public IActionResult Edit(int id){
+        public IActionResult Edit(int id)
+        {
+            if (Repository.GetProductById(id) == null)
+            {
+                return View("NotFound");
+            }
+            
             var product = Repository.GetProductById(id);
+
+            if (product == null)
+            {
+                return View("NotFound");
+            }
+
             ViewBag.Categories = Repository.Categories;
             return View(product);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Product product, IFormFile imageFile)
+        {
+            return RedirectToAction("Index");
         }
     }
 }
