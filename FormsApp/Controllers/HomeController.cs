@@ -74,5 +74,12 @@ namespace FormsApp.Controllers
             ViewBag.Categories = Repository.Categories;
             return View(product);
         }
+
+        [HttpGet]
+        public IActionResult Edit(int id){
+            var product = Repository.GetProductById(id);
+            ViewBag.Categories = Repository.Categories;
+            return View(product);
+        }
     }
 }
