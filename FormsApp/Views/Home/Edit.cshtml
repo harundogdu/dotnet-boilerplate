@@ -7,6 +7,7 @@ ViewData["Title"] = "Edit Product";
 
 <form class="card card-body" method="post" asp-action="Edit" asp-controller="Home" enctype="multipart/form-data">
     <div asp-validation-summary="All" class="text-danger"></div> <!-- This line is important -->
+    <input type="hidden" asp-for="ProductId" />
 
     <div class="form-group">
         <label asp-for="Name"></label>
@@ -25,12 +26,12 @@ ViewData["Title"] = "Edit Product";
     </div>
     <div>
         <div class="form-group my-2">
-            <label asp-for="ImageUrl"></label>
             <input type="file" name="imageFile" id="imageFile" class="form-control" />
-            <span asp-validation-for="ImageUrl" class="text-danger"></span>
         </div>
         <div class="form-group my-2">
             <img src="~/img/@Model.ImageUrl" alt="@Model.Name" width="100" height="100" />
+            <!-- hidden image -->
+            <input type="hidden" asp-for="@Model.ImageUrl" />
         </div>
     </div>
     <div class="form-group my-2">
