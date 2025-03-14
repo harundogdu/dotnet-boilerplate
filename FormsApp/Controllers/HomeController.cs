@@ -151,5 +151,14 @@ namespace FormsApp.Controllers
 
             return View(product);
         }
+
+        [HttpPost]
+        public IActionResult Delete(Product product){
+            if(Repository.DeleteProduct(product.ProductId)){
+                return RedirectToAction("Index");
+            }
+
+            return View("NotFound");
+        }
     }
 }
