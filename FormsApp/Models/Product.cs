@@ -5,7 +5,6 @@ namespace FormsApp.Models
 {
     public class Product
     {
-        [BindNever]
         public int ProductId { get; set; }
 
         [Display(Name = "Product name")]
