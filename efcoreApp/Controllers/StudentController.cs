@@ -82,7 +82,7 @@ namespace efcoreApp.Controllers
                     await _context.SaveChangesAsync();
                     return RedirectToAction("Index");
                 }
-                catch (System.Exception ex)
+                catch (Exception)
                 {
                     ModelState.AddModelError("", "An error occurred while updating the student.");
                     return View(model);
