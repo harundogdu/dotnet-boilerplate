@@ -10,7 +10,7 @@ ViewData["Title"] = "Update a new student";
         <p>Fill in the form below to update a new student</p>
     </div>
     <div class="card-body">
-        <form asp-controller="Student" asp-action="Create" method="post">
+        <form asp-controller="Student" asp-action="Edit" method="post">
             <input type="hidden" asp-for="StudentId" />
             <div asp-validation-summary="All" class="text-danger"></div>
             <div class="form-group my-2">
