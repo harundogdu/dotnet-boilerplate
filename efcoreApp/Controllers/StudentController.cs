@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using efcoreApp.Data;
 using Microsoft.AspNetCore.Mvc;
 
@@ -33,8 +34,8 @@ namespace efcoreApp.Controllers
                 try
                 {
                     _context.Students.Add(student);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Index");
                 }
                 catch (System.Exception)
                 {
@@ -44,6 +45,14 @@ namespace efcoreApp.Controllers
 
             return View(student);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
+        {
+            var student = await _context.Students.FindAsync(id);
+            return View(student);
+        }
+
 
     }
 }
