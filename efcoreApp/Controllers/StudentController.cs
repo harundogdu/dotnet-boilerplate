@@ -91,5 +91,41 @@ namespace efcoreApp.Controllers
 
             return View(student);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(int? id)
+        {
+            var student = await _context.Students.FindAsync(id);
+            // var student = await _context.Students.FirstOrDefaultAsync(x => x.StudentId == id); // Bu şekilde de yapılabilir. Bu şekilde farklı kolonlar üzerinden de arama yapılabilir.
+
+            if (student == null)
+            {
+                return NotFound();
+            }
+
+            return View(student);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(int? id, Student? model)
+        {
+            var student = await _context.Students.FindAsync(id);
+
+            if (student == null)
+            {
+                return NotFound();
+            }
+
+            try
+            {
+                _context.Students.Remove(student);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
+        }
     }
 }
