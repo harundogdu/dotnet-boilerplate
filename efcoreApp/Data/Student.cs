@@ -1,10 +1,12 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace efcoreApp.Data
 {
     public class Student
     {
         [Key] // Primary Key: Herhangi bir key'in primary key olduğunu belirtir. "classAdıId" veya "Id" olarak yazılırsa bunun eklenmesine gerek yoktur.
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int StudentId { get; set; }
 
         [Required]
