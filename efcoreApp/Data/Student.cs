@@ -28,7 +28,6 @@ namespace efcoreApp.Data
         public string? Email { get; set; }
 
         [Required]
-        [DataType(DataType.Date)]
         [Display(Name = "Birth date")]
         public DateTime BirthTime { get; set; }
     }
