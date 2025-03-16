@@ -8,20 +8,26 @@ namespace efcoreApp.Data
         public int StudentId { get; set; }
 
         [Required]
+        [Display(Name = "First name")]
         public string? FirstName { get; set; }
 
         [Required]
+        [Display(Name = "Last name")]
         public string? LastName { get; set; }
 
         [Required]
         [Phone]
+        [Display(Name = "Phone number")]
         public string? PhoneNumber { get; set; }
 
         [Required]
         [EmailAddress]
+        [Display(Name = "Email address")]
         public string? Email { get; set; }
 
         [Required]
+        [DataType(DataType.Date)]
+        [Display(Name = "Birth date")]
         public DateTime BirthTime { get; set; }
     }
 }
