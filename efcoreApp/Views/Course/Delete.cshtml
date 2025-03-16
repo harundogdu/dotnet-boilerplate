@@ -1,0 +1,24 @@
+@model Course
+
+@{
+ViewData["Title"] = "Delete course";
+}
+
+<div class="card">
+    <div class="card-header">
+        <p>
+            Are you sure you want to delete the
+            <b>
+                @Model.CourseTitle
+            </b>
+            with the following details?
+        </p>
+    </div>
+    <div class="card-body">
+        <form method="post" asp-controller="Course" asp-action="Delete">
+            <input type="hidden" asp-for="CourseId" />
+            <a class="btn btn-secondary" asp-controller="Course" asp-action="Index">Back to List</a>
+            <button class="btn btn-danger">Delete</button>
+        </form>
+    </div>
+</div>

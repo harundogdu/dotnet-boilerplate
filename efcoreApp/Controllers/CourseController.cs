@@ -87,5 +87,42 @@ namespace efcoreApp.Controllers
 
         }
 
+        [HttpGet]
+        public IActionResult Delete(int? id)
+        {
+            var course = _context.Courses.Find(id);
+
+            if (course == null)
+            {
+                return NotFound();
+            }
+
+            return View(course);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(int? id, Course? model)
+        {
+            var course = _context.Courses.Find(id);
+
+            if (course == null)
+            {
+                return NotFound();
+            }
+
+            try
+            {
+                _context.Courses.Remove(course);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+                ModelState.AddModelError("", "An error occurred while updating the course.");
+                return View(model);
+            }
+
+        }
+
     }
 }
