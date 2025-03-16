@@ -1,11 +1,38 @@
-    
-@{
-    ViewData["Title"] = "Students";
-}
+@model IEnumerable<Student>
 
-<div class="">
-    <h4>Student list</h4>
-    <table class="table table-striped">
-        <tr></tr>
-    </table>
-</div>
+    @{
+    ViewData["Title"] = "Students";
+    }
+    <div class="card">
+        <div class="card-header">
+            <h4>Student list</h4>
+            <p>Here is a list of all students</p>
+            <a asp-controller="Student" asp-action="Create" class="btn btn-primary">
+                Create a new student
+            </a>
+        </div>
+        <div class="card-body">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.FirstName)</th>
+                        <th>@Html.DisplayNameFor(model => model.LastName)</th>
+                        <th>@Html.DisplayNameFor(model => model.PhoneNumber)</th>
+                        <th>@Html.DisplayNameFor(model => model.Email)</th>
+                        <th>@Html.DisplayNameFor(model => model.BirthTime)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(var student in Model){
+                    <tr>
+                        <td>@student.FirstName</td>
+                        <td>@student.LastName</td>
+                        <td>@student.PhoneNumber</td>
+                        <td>@student.PhoneNumber</td>
+                        <td>@student.BirthTime</td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
