@@ -20,6 +20,7 @@
                         <th>@Html.DisplayNameFor(model => model.PhoneNumber)</th>
                         <th>@Html.DisplayNameFor(model => model.Email)</th>
                         <th>@Html.DisplayNameFor(model => model.BirthTime)</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -30,6 +31,14 @@
                         <td>@student.PhoneNumber</td>
                         <td>@student.PhoneNumber</td>
                         <td>@student.BirthTime</td>
+                        <td>
+                            <a asp-controller="Student" asp-action="Edit" asp-route-id="@student.StudentId" class="btn btn-warning">
+                                Edit
+                            </a>
+                            <a asp-controller="Student" asp-action="Delete" asp-route-id="@student.StudentId" class="btn btn-danger">
+                                Delete
+                            </a>
+                        </td>
                     </tr>
                     }
                 </tbody>
