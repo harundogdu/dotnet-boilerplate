@@ -1,0 +1,35 @@
+@model Student
+
+@{
+    ViewData["Title"] = "Create a new student";
+}
+
+<div class="card card-body">
+    <h3>Create a new student</h3>
+    <form asp-controller="Student" asp-action="Create" method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group my-2">
+            <label asp-for="FirstName" class="form-label">Student name</label>
+            <input asp-for="FirstName" class="form-control" placeholder="Enter a valid name">
+        </div>
+        <div class="form-group my-2">
+            <label asp-for="LastName" class="form-label">Student surname</label>
+            <input asp-for="LastName" class="form-control" placeholder="Enter a valid surname">
+        </div>
+        <div class="form-group my-2">
+            <label asp-for="PhoneNumber" class="form-label">Student phone number</label>
+            <input asp-for="PhoneNumber" class="form-control" placeholder="Enter a valid phone number">
+        </div>
+        <div class="form-group my-2">
+            <label asp-for="Email" class="form-label">Student email</label>
+            <input asp-for="Email" class="form-control" placeholder="Enter a valid email">
+        </div>
+        <div class="form-group my-2">
+            <label asp-for="BirthTime" class="form-label">Student birth time</label>
+            <input asp-for="BirthTime" class="form-control" placeholder="Enter a valid birth time">
+        </div>
+        <div class="form-group mt-4">
+            <button class="btn btn-primary" type="submit">Create</button>
+        </div>
+    </form>
+</div>
