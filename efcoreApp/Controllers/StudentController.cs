@@ -47,12 +47,49 @@ namespace efcoreApp.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Edit(int id)
+        public async Task<IActionResult> Edit(int? id)
         {
             var student = await _context.Students.FindAsync(id);
+            // var student = await _context.Students.FirstOrDefaultAsync(x => x.StudentId == id); // Bu şekilde de yapılabilir. Bu şekilde farklı kolonlar üzerinden de arama yapılabilir.
+
+            if (student == null)
+            {
+                return NotFound();
+            }
+
             return View(student);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, Student model)
+        {
+            var student = await _context.Students.FindAsync(id);
 
+            if (student == null)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    student.FirstName = model.FirstName;
+                    student.LastName = model.LastName;
+                    student.Email = model.Email;
+                    student.PhoneNumber = model.PhoneNumber;
+                    student.BirthTime = model.BirthTime;
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Index");
+                }
+                catch (System.Exception ex)
+                {
+                    ModelState.AddModelError("", "An error occurred while updating the student.");
+                    return View(model);
+                }
+            }
+
+            return View(student);
+        }
     }
 }
