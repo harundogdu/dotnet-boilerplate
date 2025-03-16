@@ -1,0 +1,51 @@
+@model IEnumerable<Course>
+
+@{
+ViewData["Title"] = "Course list";
+}
+
+
+<div class="card">
+    <div class="card-header">
+        <h4>Course list</h4>
+        <p>Here is a list of all courses</p>
+        <a asp-controller="Course" asp-action="Create" class="btn btn-primary">
+            Create a new course
+        </a>
+    </div>
+    <div class="card-body">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.CourseTitle)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var course in Model){
+                <tr>
+                    <td>@course.CourseTitle</td>
+                    <td>
+                        <a asp-controller="Course" asp-action="Edit" asp-route-id="@course.CourseId"
+                            class="btn btn-warning">
+                            Edit
+                        </a>
+                        <a asp-controller="Course" asp-action="Delete" asp-route-id="@course.CourseId"
+                            class="btn btn-danger">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+                }
+
+                @if(!Model.Any()){
+                <tr>
+                    <td colspan="6">
+                        <p class="text-center m-0 text-muted">No courses found</p>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
