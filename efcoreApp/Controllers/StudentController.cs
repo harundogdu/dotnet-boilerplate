@@ -15,7 +15,8 @@ namespace efcoreApp.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            var students = _context.Students.ToList();
+            return View(students);
         }
 
         [HttpGet]
