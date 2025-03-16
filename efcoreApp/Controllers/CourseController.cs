@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using efcoreApp.Data;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,10 +12,36 @@ namespace efcoreApp.Controllers
         {
             _context = context;
         }
-
-        public IActionResult Index(){
+        [HttpGet]
+        public IActionResult Index()
+        {
             var courses = _context.Courses.ToList();
             return View(courses);
+        }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(Course course)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Courses.Add(course);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Index");
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+            return View(course);
         }
 
     }
