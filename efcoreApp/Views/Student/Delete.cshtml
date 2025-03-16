@@ -1,0 +1,24 @@
+@model Student
+
+@{
+ViewData["Title"] = "Create a new student";
+}
+
+<div class="card">
+    <div class="card-header">
+        <p>
+            Are you sure you want to delete the
+            <b>
+                @Model.FirstName @Model.LastName
+            </b>
+            with the following details?
+        </p>
+    </div>
+    <div class="card-body">
+        <form method="post" asp-controller="Student" asp-action="Delete">
+            <input type="hidden" asp-for="StudentId" />
+            <a class="btn btn-secondary" asp-controller="Student" asp-action="Index">Back to List</a>
+            <button class="btn btn-danger">Delete</button>
+        </form>
+    </div>
+</div>
